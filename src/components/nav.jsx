@@ -4,10 +4,17 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navContainer">
-        <span className="logo">lamabooking</span>
+        <span>
+          <img
+            className="logo"
+            src="https://promos.makemytrip.com/Growth/Images/1x/mmt_dt_top_icon.png"
+            alt=""
+            srcset=""
+          />
+        </span>
         <div className="navItems">
-          <button className="navButton">Register</button>
-          <button className="navButton">Login</button>
+          <button className="navButton">List your property</button>
+          <button className="navButton">Log in / Register</button>
         </div>
       </div>
     </div>

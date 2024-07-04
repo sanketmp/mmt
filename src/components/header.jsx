@@ -7,13 +7,13 @@ import {
   faTaxi,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./header.css";
 import { DateRange } from "react-date-range";
 import { useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import "./header.css";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -31,6 +31,7 @@ const Header = ({ type }) => {
     children: 0,
     room: 1,
   });
+  const [activeClass, setActiveClass] = useState(2);
 
   const navigate = useNavigate();
 
@@ -54,10 +55,10 @@ const Header = ({ type }) => {
           type === "list" ? "headerContainer listMode" : "headerContainer"
         }
       >
-        <div className="headerList">
+        {/* <div className="headerList">
           <div className="headerListItem active">
             <FontAwesomeIcon icon={faBed} />
-            <span>Stays</span>
+            <span>Hotels</span>
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faPlane} />
@@ -75,17 +76,64 @@ const Header = ({ type }) => {
             <FontAwesomeIcon icon={faTaxi} />
             <span>Airport taxis</span>
           </div>
-        </div>
+        </div> */}
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
               A lifetime of discounts? It's Genius.
             </h1>
             <p className="headerDesc">
-              Get rewarded for your travels – unlock instant savings of 10% or
-              more with a free Lamabooking account
+              Get rewarded for your travels - unlock instant savings of 10% or
+              more with a free
+              <span style={{ color: "#eb2226" }}> Make My Trip</span> account
             </p>
-            <button className="headerBtn">Sign in / Register</button>
+            <div className="headerList">
+              <div
+                onClick={() => setActiveClass(1)}
+                className={
+                  activeClass === 1 ? "headerListItem active" : "headerListItem"
+                }
+              >
+                <FontAwesomeIcon icon={faBed} />
+                <span>Hotels</span>
+              </div>
+              <div
+                onClick={() => setActiveClass(2)}
+                className={
+                  activeClass === 2 ? "headerListItem active" : "headerListItem"
+                }
+              >
+                <FontAwesomeIcon icon={faPlane} />
+                <span>Flights</span>
+              </div>
+              <div
+                onClick={() => setActiveClass(3)}
+                className={
+                  activeClass === 3 ? "headerListItem active" : "headerListItem"
+                }
+              >
+                <FontAwesomeIcon icon={faCar} />
+                <span>Car rentals</span>
+              </div>
+              <div
+                onClick={() => setActiveClass(4)}
+                className={
+                  activeClass === 4 ? "headerListItem active" : "headerListItem"
+                }
+              >
+                <FontAwesomeIcon icon={faBed} />
+                <span>Attractions</span>
+              </div>
+              <div
+                onClick={() => setActiveClass(5)}
+                className={
+                  activeClass === 5 ? "headerListItem active" : "headerListItem"
+                }
+              >
+                <FontAwesomeIcon icon={faTaxi} />
+                <span>Airport taxis</span>
+              </div>
+            </div>
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
