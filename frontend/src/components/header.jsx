@@ -14,6 +14,7 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import "./header.css";
+import Navbar from "./nav";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -31,7 +32,7 @@ const Header = ({ type }) => {
     children: 0,
     room: 1,
   });
-  const [activeClass, setActiveClass] = useState(2);
+  const [activeClass, setActiveClass] = useState(1);
 
   const navigate = useNavigate();
 
@@ -55,6 +56,7 @@ const Header = ({ type }) => {
           type === "list" ? "headerContainer listMode" : "headerContainer"
         }
       >
+        <Navbar />
         {/* <div className="headerList">
           <div className="headerListItem active">
             <FontAwesomeIcon icon={faBed} />

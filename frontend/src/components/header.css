@@ -1,15 +1,18 @@
 .header {
-  background-image: url(https://raw.githubusercontent.com/AbhishekCdr/make_my_trip_client/main/src/assets/bg4.jpg);
+  background-image: url(https://www.evasionsusa.com/_next/image?url=https%3A%2F%2Fstatic.evasionsusa.com%2Flarge_arizona_large_1f76db3ac7.jpg&w=1920&q=75);
   color: white;
   display: flex;
   justify-content: center;
   position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .headerContainer {
   width: 100%;
   max-width: 1024px;
   margin: 20px 0px 100px 0px;
+  /* border: 2px solid gold; */
 }
 
 .headerContainer.listMode {
@@ -20,7 +23,7 @@
   display: flex;
   justify-content: center;
   gap: 60px;
-  /* margin-top: 50px; */
+  margin-top: 50px;
   padding: 20px;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
@@ -41,7 +44,7 @@
 }
 
 .headerDesc {
-  margin: 20px 0px;
+  margin: 0px 0px;
 }
 
 .headerBtn {

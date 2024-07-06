@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../context/authcontext.jsx";
-import "./login.css";
+//import "./login.css";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -33,7 +33,15 @@ const Login = () => {
   return (
     <div className="login">
       <div className="lContainer">
-        <span>Login to MakeMyTrip</span>
+        <div style={{ marginBottom: "30px" }}>
+          &lt;&nbsp;
+          <Link style={{ textDecoration: "none" }} to="/">
+            Back
+          </Link>
+        </div>
+        <span style={{ textAlign: "center", fontSize: "30px" }}>
+          Login to MakeMyTrip
+        </span>
         <input
           type="text"
           placeholder="Enter username"
@@ -52,6 +60,16 @@ const Login = () => {
           Login
         </button>
         {error && <span>{error.message}</span>}
+        <span>
+          Don't have account?&nbsp;
+          <Link
+            to="/signup"
+            style={{ textDecoration: "none", color: "#eb2226" }}
+          >
+            Signup
+          </Link>
+          &nbsp;here.
+        </span>
       </div>
     </div>
   );

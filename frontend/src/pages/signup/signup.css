@@ -1,32 +1,45 @@
 .login {
-  height: 100vh;
+  font-family: inherit;
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .lContainer {
+  font-family: inherit;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 25%;
+  padding: 0px 50px;
+  border-left: 5px solid #eb2226;
 }
 
 .lInput {
+  font-family: inherit;
   height: 30px;
   padding: 10px;
+  font-size: 20px;
 }
 
 .lButton {
-  border: none;
+  font-family: inherit;
+  border: 2px solid #eb2226;
   padding: 10px 20px;
-  background-color: #0071c2;
+  background-color: rgb(22, 72, 128);
   color: white;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
 
 .lButton:disabled {
   background-color: #0071c28c;
   cursor: not-allowed;
+}
+
+.lButton:hover {
+  background-color: rgb(67, 155, 255);
+  border: 2px solid rgb(22, 72, 128);
 }

@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useContext, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { AuthContext } from "../../context/authcontext.jsx";
-import "./signup.css";
+//import "../login/login.css";
 
-const Signup = () => {
+const AdminLogin = () => {
   const [credentials, setCredentials] = useState({
     username: undefined,
     password: undefined,
@@ -39,47 +39,30 @@ const Signup = () => {
             Back
           </Link>
         </div>
-        <span style={{ textAlign: "center", fontSize: "30px" }}>
-          Create new account
+        <span style={{ textAlign: "center", fontSize: "20px" }}>
+          List your propertyy
         </span>
         <input
           type="text"
-          placeholder="Enter username"
+          placeholder="Enter admin username"
           id="username"
           onChange={handleChange}
           className="lInput"
         />
         <input
-          type="email"
-          placeholder="Enter email"
-          id="email"
-          onChange={handleChange}
-          className="lInput"
-        />
-        <input
           type="password"
-          placeholder="Enter password"
+          placeholder="Enter admin password"
           id="password"
           onChange={handleChange}
           className="lInput"
         />
         <button disabled={loading} onClick={handleClick} className="lButton">
-          Create
+          Login as Admin
         </button>
         {error && <span>{error.message}</span>}
-        <span>
-          Already have account?&nbsp;
-          <Link
-            style={{ textDecoration: "none", color: "#eb2226" }}
-            to="/login"
-          >
-            Login
-          </Link>
-          &nbsp;here.
-        </span>
       </div>
     </div>
   );
 };
 
-export default Signup;
+export default AdminLogin;

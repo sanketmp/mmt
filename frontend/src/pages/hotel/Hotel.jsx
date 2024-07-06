@@ -51,7 +51,7 @@ const Hotel = () => {
       newSlideNumber = slideNumber === 5 ? 0 : slideNumber + 1;
     }
 
-    setSlideNumber(newSlideNumber)
+    setSlideNumber(newSlideNumber);
   };
 
   return (
@@ -83,7 +83,7 @@ const Hotel = () => {
         )}
         <div className="hotelWrapper">
           <button className="bookNow">Reserve or Book Now!</button>
-          <h1 className="hotelTitle">Tower Street Apartments</h1>
+          <h1 className="hotelTitle">Tower Streett Apartments</h1>
           <div className="hotelAddress">
             <FontAwesomeIcon icon={faLocationDot} />
             <span>Elton St 125 New york</span>
