@@ -9,7 +9,7 @@ const Navbar = () => {
             className="logo"
             src="https://promos.makemytrip.com/Growth/Images/1x/mmt_dt_top_icon.png"
             alt=""
-            srcset=""
+            
           />
         </span>
         <div className="navItems">
