@@ -4,7 +4,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "api-dev": "nodemon backend/index.js",
+    "api-start": "node backend/index.js",
+    "client": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run client\" \"npm run api-dev\"",
+    "start": "concurrently \"npm run client\" \"npm run api-start\""
   },
   "keywords": [],
   "author": "sanketmp",
@@ -12,6 +16,7 @@
   "description": "Make my trip",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
