@@ -10,7 +10,7 @@ import {
   updateHotel,
 } from "../controllers/hotelcontroller.js";
 import Hotel from "../models/hotelmodel.js";//
-import { verifyAdmin } from "../utils/verifyToken.js";
+import { verifyAdmin } from "../middleware/verifyToken.js";
 
 const router = express.Router();
 
