@@ -1,20 +1,28 @@
 import User from "../models/usermodel.js";
 import bcrypt from "bcryptjs";
-import { createError } from "../utils/error.js";
 import jwt from "jsonwebtoken";
+import { createError } from "../utils/error.js";
 
 export const register = async (req, res, next) => {
+  const { username, email, password } = req.body;
+
   try {
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(req.body.password, salt);
+    const userExists = await User.findOne({ email });
+    if (userExists) {
+      res.status(400).send("> Email already exists");
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
 
     const newUser = new User({
-      ...req.body,
-      password: hash,
+      username,
+      email,
+      password: hashedPassword,
     });
 
     await newUser.save();
-    res.status(200).send("> User created.");
+    res.status(201).send("User created.");
   } catch (err) {
     next(err);
   }
@@ -23,14 +31,14 @@ export const register = async (req, res, next) => {
 export const login = async (req, res, next) => {
   try {
     const user = await User.findOne({ username: req.body.username });
-    if (!user) return next(createError(404, "> User not found!"));
+    if (!user) return next(createError(404, "User not found!"));
 
     const isPasswordCorrect = await bcrypt.compare(
       req.body.password,
       user.password
     );
     if (!isPasswordCorrect)
-      return next(createError(400, "> Wrong password or username!"));
+      return next(createError(400, "Invalid password or username!"));
 
     const token = jwt.sign(
       { id: user._id, isAdmin: user.isAdmin },
@@ -47,4 +55,14 @@ export const login = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+};
+
+export const logoutuser = async (req, res, next) => {
+  res
+    .cookie("access_token", "", {
+      httyOnly: true,
+      expires: new Date(0),
+    })
+    .status(200)
+    .json({ message: "Logged out successfully." });
 };
