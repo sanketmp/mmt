@@ -33,3 +33,18 @@
   background-color: rgb(67, 155, 255);
   border: 2px solid rgb(22, 72, 128);
 }
+
+.usernavButton {
+  font-family: inherit;
+  margin-left: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: rgb(22, 72, 128);
+  border: 2px solid #ffffff;
+  height: 45px;
+}
+
+.usernavButton:hover {
+  border: 2px solid #eb2226;
+}

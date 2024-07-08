@@ -2,32 +2,24 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../context/authcontext.jsx";
-//import "./login.css";
+import "./addyourproperty.css"
 
-const Login = () => {
-  const [credentials, setCredentials] = useState({
-    username: undefined,
-    password: undefined,
-  });
-  const { loading, error, dispatch } = useContext(AuthContext);
-  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-  };
+const CustomRadioButton = ({ label, selected, onSelect }) => (
+  <li>
+    <button
+      style={{
+        ...styles.radioButton,
+        ...(selected ? styles.selected : {}),
+      }}
+      onClick={onSelect}
+    >
+      {label}
+    </button>
+  </li>
+);
 
-  const handleClick = async (e) => {
-    e.preventDefault();
-    dispatch({ type: "LOGIN_START" });
-    try {
-      const res = await axios.post("/auth/login", credentials);
-      dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-      navigate("/");
-    } catch (err) {
-      dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
-    }
-  };
-
+const addyourproperty = () => {
   return (
     <div className="login">
       <div className="lContainer">
@@ -38,11 +30,11 @@ const Login = () => {
           </Link>
         </div>
         <span style={{ textAlign: "center", fontSize: "30px" }}>
-          Login to MakeMyTrip
+          Enter Details
         </span>
         <input
           type="text"
-          placeholder="Enter username"
+          placeholder="Enter Hotel name"
           id="username"
           onChange={handleChange}
           className="lInput"
@@ -73,4 +65,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default addyourproperty;
