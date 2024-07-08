@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import authRoute from "./routes/authRoutes.js";
 import usersRoute from "./routes/userRoutes.js";
 import hotelsRoute from "./routes/hotelRoutes.js";
-// import roomsRoute from "./routes/rooms.js";
+/// import roomsRoute from "./routes/rooms.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import connectDB from "./db/connectdb.js";
