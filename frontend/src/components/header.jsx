@@ -87,7 +87,7 @@ const Header = ({ type }) => {
             <p className="headerDesc">
               Get rewarded for your travels - unlock instant savings of 10% or
               more with a free
-              <span style={{ color: "black" }}> Make My Trip</span> account
+              <span style={{ color: "black" }}> Make My Trip</span> account.
             </p>
             <div className="headerList">
               <div

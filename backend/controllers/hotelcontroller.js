@@ -47,7 +47,7 @@ export const getHotels = async (req, res, next) => {
   try {
     const hotels = await Hotel.find({
       ...others,
-      price: { $gt: min | 1, $lt: max || 40000 },
+      price: { $gt: min || 1, $lt: max || 40000 },
     }).limit(req.query.limit);
     res.status(200).json(hotels);
   } catch (err) {
@@ -69,7 +69,7 @@ export const countByCity = async (req, res, next) => {
   }
 };
 
-//No need for my projetc
+//No need for my projet
 export const countByType = async (req, res, next) => {
   try {
     const hotelCount = await Hotel.countDocuments({ type: "hotel" });

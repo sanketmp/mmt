@@ -9,7 +9,7 @@ import {
   getHotels,
   updateHotel,
 } from "../controllers/hotelcontroller.js";
-import Hotel from "../models/hotelmodel.js";//
+//import Hotel from "../models/hotelmodel.js";//
 import { verifyAdmin } from "../middleware/verifyToken.js";
 
 const router = express.Router();
@@ -20,7 +20,7 @@ router.delete("/:id", verifyAdmin, deleteHotel);
 router.get("/find/:id", getHotel);
 
 router.get("/", getHotels);
-router.get("/countByCity", countByCity);
+router.get("/countbycity", countByCity);
 
 //Not needed
 router.get("/countByType", countByType);

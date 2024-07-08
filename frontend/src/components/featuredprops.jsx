@@ -11,7 +11,7 @@ const FeaturedProperties = () => {
         />
         <span className="fpName">Sofitel Mumbai BKC</span>
         <span className="fpCity">BKC, Munbai</span>
-        <span className="fpPrice">Starting from 12k INR</span>
+        <span className="fpPrice">Starting from &#8377;12k</span>
         <div className="fpRating">
           <button>8.9</button>
           <span>Excellent</span>
@@ -25,7 +25,7 @@ const FeaturedProperties = () => {
         />
         <span className="fpName">Hotel Sea Princess</span>
         <span className="fpCity">Juhu, Mumbai</span>
-        <span className="fpPrice">Starting from 14k INR</span>
+        <span className="fpPrice">Starting from &#8377;14k</span>
         <div className="fpRating">
           <button>9.3</button>
           <span>Exceptional</span>
@@ -39,7 +39,7 @@ const FeaturedProperties = () => {
         />
         <span className="fpName">Courtyard Nashik</span>
         <span className="fpCity">Nashik</span>
-        <span className="fpPrice">Starting from 9k INR</span>
+        <span className="fpPrice">Starting from &#8377;9k</span>
         <div className="fpRating">
           <button>8.8</button>
           <span>Excellent</span>
@@ -53,7 +53,7 @@ const FeaturedProperties = () => {
         />
         <span className="fpName">JW Marriott Hotel</span>
         <span className="fpCity">Pune</span>
-        <span className="fpPrice">Starting from 10k INR</span>
+        <span className="fpPrice">Starting from &#8377;10k</span>
         <div className="fpRating">
           <button>8.9</button>
           <span>Excellent</span>

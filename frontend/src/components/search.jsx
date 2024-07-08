@@ -1,6 +1,7 @@
 import "./search.css";
+import { Link } from "react-router-dom";
 
-const Search = () => {
+const Search = ({ item }) => {
   return (
     <div className="searchItem">
       <img
@@ -9,16 +10,13 @@ const Search = () => {
         className="siImg"
       />
       <div className="siDesc">
-        <h1 className="siTitle">Tower Street Apartments</h1>
-        <span className="siDistance">500m from center</span>
-        <span className="siTaxiOp">Free airport taxi</span>
-        <span className="siSubtitle">
-          Studio Apartment with Air conditioning
+        <h1 className="siTitle">{item.name}</h1>
+        <span className="siDistance">
+          {item.distance} from {item.city}
         </span>
-        <span className="siFeatures">
-          Entire studio • 1 bathroom • 21m² 1 full bed
-        </span>
-        <span className="siCancelOp">Free cancellation </span>
+        <span className="siTaxiOp">Free taxi</span>
+        <span className="siSubtitle">{item.desc}</span>
+        <span className="siCancelOp">Cancellation available</span>
         <span className="siCancelOpSubtitle">
           You can cancel later, so lock in this great price today!
         </span>
@@ -29,9 +27,11 @@ const Search = () => {
           <button>8.9</button>
         </div>
         <div className="siDetailTexts">
-          <span className="siPrice">$112</span>
+          <span className="siPrice">&#8377;{item.price}</span>
           <span className="siTaxOp">Includes taxes and fees</span>
-          <button className="siCheckButton">See availability</button>
+          <Link to={`/hotels/${item._id}`}>
+            <button className="siCheckButton">Book Now</button>
+          </Link>
         </div>
       </div>
     </div>
@@ -39,3 +39,15 @@ const Search = () => {
 };
 
 export default Search;
+
+/**
+ "_id": "668bb1e2a64dd8b77a6f4c04",
+        "name": "Olden Oak Inn",
+        "city": "Mumbai",
+        "distance": "100kms",
+        "desc": "Luxurious Lodging in Mumbai Central",
+        "price": 1999,
+        "createdAt": "2024-07-08T09:31:14.445Z",
+        "updatedAt": "2024-07-08T09:31:14.445Z",
+        "__v": 0
+ */

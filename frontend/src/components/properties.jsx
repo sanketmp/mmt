@@ -11,7 +11,6 @@ const Properties = () => {
         />
         <div className="pListTitles">
           <h1>Hotels</h1>
-          <h2>233 hotels</h2>
         </div>
       </div>
       <div className="pListItem">
@@ -22,7 +21,6 @@ const Properties = () => {
         />
         <div className="pListTitles">
           <h1>Apartments</h1>
-          <h2>2331 hotels</h2>
         </div>
       </div>
       <div className="pListItem">
@@ -33,7 +31,6 @@ const Properties = () => {
         />
         <div className="pListTitles">
           <h1>Resorts</h1>
-          <h2>2331 hotels</h2>
         </div>
       </div>
       <div className="pListItem">
@@ -44,7 +41,6 @@ const Properties = () => {
         />
         <div className="pListTitles">
           <h1>Villas</h1>
-          <h2>2331 hotels</h2>
         </div>
       </div>
       <div className="pListItem">
@@ -55,7 +51,6 @@ const Properties = () => {
         />
         <div className="pListTitles">
           <h1>Cabins</h1>
-          <h2>2331 hotels</h2>
         </div>
       </div>
     </div>
