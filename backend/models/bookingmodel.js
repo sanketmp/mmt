@@ -25,10 +25,6 @@ const BookingSchema = new mongoose.Schema(
     flightto: {
       type: String,
     },
-    people: {
-      type: Number,
-      required: true,
-    },
     amount: {
       type: Number,
       required: true,
