@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./list.css";
 import useFetch from "../../hooks/useFetch";
 import Navbar from "../../components/nav";
@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/search";
+import { SearchContext } from "../../context/searchcontext";
 
 const List = () => {
   const location = useLocation();
@@ -21,7 +22,13 @@ const List = () => {
     `/hotels?city=${destination}&min=${min || 1}&max=${max || 40000}`
   );
 
+  const { dispatch } = useContext(SearchContext);
+
   const handleClick = () => {
+    dispatch({
+      type: "NEW_SEARCH",
+      payload: { destination, dates, options },
+    });
     reFetch();
   };
 
@@ -48,9 +55,11 @@ const List = () => {
               )} to ${format(dates[0].endDate, "MM/dd/yyyy")}`}</span>
               {openDate && (
                 <DateRange
+                  editableDateInputs={true}
                   onChange={(item) => setDates([item.selection])}
-                  minDate={new Date()}
+                  moveRangeOnFirstSelection={false}
                   ranges={dates}
+                  minDate={new Date()}
                 />
               )}
             </div>

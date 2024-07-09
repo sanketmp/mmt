@@ -48,6 +48,7 @@ const Header = ({ type }) => {
   };
 
   const { dispatch } = useContext(SearchContext);
+  
   const handleSearch = () => {
     if (destination !== "") {
       dispatch({
