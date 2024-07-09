@@ -1,0 +1,60 @@
+.login {
+  font-family: inherit;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Container {
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 50%;
+  height: fit-content;
+  padding: 30px 50px;
+  border: 5px solid #eb2226;
+  border-radius: 20px;
+}
+
+.bookingdetail {
+  border: 1px solid lawngreen;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+
+.bookingdetail #details {
+  color: rgb(22, 72, 128);
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+#info {
+  text-align: center;
+  font-size: 15px;
+  color: #06ff3c;
+}
+
+#entity {
+  font-family: inherit;
+  height: 30px;
+  padding: 0px;
+  font-size: 20px;
+}
+
+.lButton {
+  font-family: inherit;
+  border: 2px solid #eb2226;
+  padding: 10px 20px;
+  background-color: rgb(22, 72, 128);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.lButton:hover {
+  background-color: rgb(67, 155, 255);
+  border: 2px solid rgb(22, 72, 128);
+}

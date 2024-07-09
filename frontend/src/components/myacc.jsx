@@ -1,25 +1,66 @@
 import "./myacc.css";
+import axios from "axios";
+import { useContext, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { AuthContext } from "../context/authcontext.jsx";
 
-const myacc = () => {
+// createdAt: "2024-07-07T09:37:54.546Z";
+// email: "user1@user.co";
+// updatedAt: "2024-07-07T09:37:54.546Z";
+// username: "user1";
+// __v: 0;
+// _id: "668a61f2f7987459f0d26c11";
+
+//let currentuser = JSON.parse(localStorage.getItem("UserDet"));
+
+const MyAcc = () => {
+  const { user, dispatch } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleClick = (ev) => {
+    ev.preventDefault();
+    axios.post("/auth/logout");
+    dispatch({ type: "LOGOUT" });
+    navigate("/");
+  };
+
   return (
     <>
-      <p id="username">username</p>
-      <p id="bookings">Bookings:</p>
-      <div className="bookingdetails">
-        <p id="type">type H/F</p>
-        <p id="hoteln">Hotel name, hotelcity</p>
-        {type === "F" && (
-          <>
-            <p id="airline">airline</p>
-            <p id="from">from:from to:to</p>
-          </>
-        )}
-        <p id="totalpeople">total people</p>
-        <p id="amount">amount</p>
+      <div className="login">
+        <div className="Container">
+          <div style={{ marginBottom: "30px" }}>
+            &lt;&nbsp;
+            <Link style={{ textDecoration: "none" }} to="/">
+              Back
+            </Link>
+          </div>
+          <span style={{ textAlign: "center", fontSize: "30px" }}>
+            My Account
+          </span>
+          <span id="entity">Username: </span>
+          <span>{user.username}</span>
+          <p id="entity">Bookings:</p>
+          <div className="bookingdetail">
+            <span id="details">Type(H/F): </span>
+            <span id="info">{"type"}</span>
+            <br />
+            <span id="info">At HotelName, City.</span>
+            <br />
+            <span id="details">Airline: </span>
+            <span id="info">{"airline"}</span>
+            <br />
+            <span id="details">From </span>
+            <span id="info">{"from"}</span>
+            <span id="details">To </span>
+            <span id="info">{"to"}</span>
+          </div>
+          <p id="entity">Amount: &#8377;{"amt"}</p>
+          <button onClick={handleClick} className="lButton">
+            Logout
+          </button>
+        </div>
       </div>
-      <button>Logout</button>
     </>
   );
 };
 
-export default myacc;
+export default MyAcc;

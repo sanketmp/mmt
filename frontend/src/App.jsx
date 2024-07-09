@@ -5,6 +5,7 @@ import List from "./pages/list/List";
 import Login from "./pages/login/login";
 import AdminLogin from "./pages/adminLogin/adminlogin";
 import Signup from "./pages/signup/signup";
+import MyAcc from "./components/myacc";
 
 function App() {
   return (
@@ -17,10 +18,11 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/loginadmin" element={<AdminLogin />} />
+          <Route path="/myaccount" element={<MyAcc />} />
         </Routes>
       </BrowserRouter>
     </>
   );
 }
- 
+
 export default App;

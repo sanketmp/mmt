@@ -12,6 +12,9 @@ const Navbar = () => {
   const handleAdminLogin = () => {
     navigate("/loginadmin");
   };
+  const handleAccount = () => {
+    navigate("/myaccount");
+  };
 
   return (
     <div className="navbar">
@@ -26,7 +29,7 @@ const Navbar = () => {
           </Link>
         </span>
         {user ? (
-          <button className="usernavButton">{user.username}</button>
+          <button className="usernavButton" onClick={handleAccount}>{user.username}</button>
         ) : (
           <div className="navItems">
             <button className="navButton" onClick={handleAdminLogin}>

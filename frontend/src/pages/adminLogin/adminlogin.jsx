@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useState } from "react";
-import { useNavigate,Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../context/authcontext.jsx";
 //import "../login/login.css";
 
@@ -39,8 +39,8 @@ const AdminLogin = () => {
             Back
           </Link>
         </div>
-        <span style={{ textAlign: "center", fontSize: "20px" }}>
-          List your propertyy
+        <span style={{ textAlign: "center", fontSize: "20px", color: "Red" }}>
+          MMT Admin
         </span>
         <input
           type="text"

@@ -5,26 +5,27 @@ import { AuthContext } from "../../context/authcontext.jsx";
 import "./signup.css";
 
 const Signup = () => {
-  const [credentials, setCredentials] = useState({
+  const [regcredentials, setregCredentials] = useState({
     username: undefined,
+    email: undefined,
     password: undefined,
   });
 
-  const { loading, error, dispatch } = useContext(AuthContext);
+  const { loading, error, dispatch,user } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+    setregCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
   const handleClick = async (e) => {
     e.preventDefault();
-    dispatch({ type: "LOGIN_START" });
+    //dispatch({ type: "LOGIN_START" }); 
     try {
-      const res = await axios.post("/auth/login", credentials);
-      dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-      navigate("/");
+      const res = await axios.post("/auth/register", regcredentials);
+      //dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
+      navigate("/login");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
     }
