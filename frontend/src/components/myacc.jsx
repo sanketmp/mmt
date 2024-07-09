@@ -41,19 +41,25 @@ const MyAcc = () => {
           <p id="entity">Bookings:</p>
           <div className="bookingdetail">
             <span id="details">Type(H/F): </span>
-            <span id="info">{"type"}</span>
+            <span id="info">&emsp;&emsp;{"type"}</span>
             <br />
-            <span id="info">At HotelName, City.</span>
+            <br />
+            <span id="info">&emsp;&emsp;&emsp;At HotelName, City.</span>
+            <br />
             <br />
             <span id="details">Airline: </span>
-            <span id="info">{"airline"}</span>
+            <span id="info">&emsp;&emsp;&emsp;{"airline"}</span>
+            <br />
             <br />
             <span id="details">From </span>
-            <span id="info">{"from"}</span>
+            <span id="info">&emsp;{"from"}&emsp;&emsp;</span>
             <span id="details">To </span>
-            <span id="info">{"to"}</span>
+            <span id="info">&emsp;{"to"}</span>
+            <br />
+            <br />
+            <span id="entity">Amount: &#8377;&nbsp;{"amt"}</span>
           </div>
-          <p id="entity">Amount: &#8377;{"amt"}</p>
+
           <button onClick={handleClick} className="lButton">
             Logout
           </button>
