@@ -62,3 +62,13 @@
   background-color: rgb(67, 155, 255);
   border: 2px solid rgb(22, 72, 128);
 }
+
+.deletebtn {
+  border: none;
+  background-color: #eb2226;
+  border-radius: 5px;
+}
+
+.deletebtn:hover {
+  cursor: pointer;
+}

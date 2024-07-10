@@ -4,6 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/authcontext.jsx";
 import useFetch from "../hooks/useFetch";
+import { MdDelete } from "react-icons/md";
 
 // createdAt: "2024-07-07T09:37:54.546Z";
 // email: "user1@user.co";
@@ -120,8 +121,8 @@ const MyAcc = () => {
                       }}
                     >
                       <span>Amount: &#8377;&nbsp;{bookdetails.amount}</span>
-                      <button onClick={() => handledelete(bookdetails._id)}>
-                        Delete Booking
+                      <button className="deletebtn" onClick={() => handledelete(bookdetails._id)}>
+                      <MdDelete />
                       </button>
                     </div>
                   </div>
