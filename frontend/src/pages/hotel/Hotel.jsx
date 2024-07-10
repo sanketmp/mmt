@@ -31,7 +31,7 @@ const Hotel = () => {
       src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707389.jpg?k=52156673f9eb6d5d99d3eed9386491a0465ce6f3b995f005ac71abc192dd5827&o=&hp=1",
     },
   ];
-  
+
   const navigate = useNavigate();
   const location = useLocation();
   const id = location.pathname.split("/")[2];
@@ -60,8 +60,10 @@ const Hotel = () => {
     if (user) {
       e.preventDefault();
       try {
-        await axios.post("/booking", bookinginfo);
-        navigate("/");
+        if (days * data.price !== 0) {
+          await axios.post("/booking", bookinginfo);
+          navigate("/");
+        }
       } catch (error) {
         throw new Error(error);
       }

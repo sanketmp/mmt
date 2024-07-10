@@ -1,19 +1,27 @@
 import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/authcontext.jsx";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import axios from "axios";
 import "./nav.css";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
+  const [age, setAge] = useState("");
   const navigate = useNavigate();
+
   const handleLogin = () => {
     navigate("/login");
   };
-  const handleAdminLogin = () => {
-    navigate("/loginadmin");
-  };
-  const handleAccount = () => {
-    navigate("/myaccount");
+
+  const handlelogout = (ev) => {
+    ev.preventDefault();
+    axios.post("/auth/logout");
+    dispatch({ type: "LOGOUT" });
+    navigate("/");
   };
 
   return (
@@ -29,12 +37,17 @@ const Navbar = () => {
           </Link>
         </span>
         {user ? (
-          <button className="usernavButton" onClick={handleAccount}>{user.username}</button>
+          <div className="dropdown">
+            <button className="dropbtn">{user.username}</button>
+            <div className="dropdown-content">
+              <Link to="/myaccount">
+                <p>My Bookings</p>
+              </Link>
+              <p onClick={handlelogout}>Logout</p>
+            </div>
+          </div>
         ) : (
           <div className="navItems">
-            <button className="navButton" onClick={handleAdminLogin}>
-              List your property
-            </button>
             <button className="navButton" onClick={handleLogin}>
               Log in / Register
             </button>

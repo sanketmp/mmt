@@ -1,6 +1,6 @@
 import "./myacc.css";
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/authcontext.jsx";
 import useFetch from "../hooks/useFetch";
@@ -17,9 +17,13 @@ import useFetch from "../hooks/useFetch";
 const MyAcc = () => {
   const { user, dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
-  const { data, loading, error, reFetch } = useFetch(
-    `/booking?person=${user.username}`
-  );
+  const {
+    data = "",
+    loading,
+    error,
+    reFetch,
+  } = useFetch(`/booking?person=${user.username}`);
+
   const handleClick = (ev) => {
     ev.preventDefault();
     axios.post("/auth/logout");
@@ -27,10 +31,25 @@ const MyAcc = () => {
     navigate("/");
   };
 
+  // function refreshPage() {
+  //   window.location.reload(false);
+  // }
+
+  // return (
+  //   <div>
+  //     <button onClick={refreshPage}>Click to reload!</button>
+  //   </div>
+  // );
+
+  const handledelete = (id) => {
+    axios.delete(`/booking/${id}`);
+    window.location.reload(false);
+  };
+
   return (
     <>
-      <div className="login">
-        <div className="Container">
+      <div className="loginn">
+        <div className="Containerr">
           <div style={{ marginBottom: "30px" }}>
             &lt;&nbsp;
             <Link style={{ textDecoration: "none" }} to="/">
@@ -38,7 +57,7 @@ const MyAcc = () => {
             </Link>
           </div>
           <span style={{ textAlign: "center", fontSize: "30px" }}>
-            My Account
+            My Bookings
           </span>
           <span id="entity">Username: </span>
           <span>{user.username}</span>
@@ -52,15 +71,17 @@ const MyAcc = () => {
                   <div className="bookingdetail" key={index}>
                     {bookdetails.type === "H" && (
                       <>
-                        <span id="details">Type(H/F): </span>
-                        <span id="info">&emsp;&emsp;{bookdetails.type}</span>
+                        <span>Booking ID: {bookdetails._id}</span>
                         <br />
                         <br />
+                        <span id="details">Booking Type(H/F): </span>
+                        <span id="info">{bookdetails.type}</span>
+                        <br />
+                        <span id="details">Hotel Name and City: </span>
                         <span id="info">
-                          &emsp;&emsp;&emsp;@ {bookdetails.hotelname},&emsp;
+                          &nbsp;{bookdetails.hotelname},&nbsp;
                           {bookdetails.hotelcity}.
                         </span>
-                        <br />
                         <br />
                       </>
                     )}
@@ -75,7 +96,6 @@ const MyAcc = () => {
                           &emsp;&emsp;&emsp;{bookdetails.airline}
                         </span>
                         <br />
-
                         <span id="details">From </span>
                         <span id="info">
                           &emsp;{bookdetails.flightfrom}&emsp;&emsp;
@@ -87,15 +107,29 @@ const MyAcc = () => {
                       </>
                     )}
 
-                    <span id="entity">
-                      Amount: &#8377;&nbsp;{bookdetails.amount}
-                    </span>
+                    <div
+                      id="entity"
+                      style={{
+                        border: "none",
+                        marginTop: "30px",
+                        padding: "10px",
+                        backgroundColor: "rgba(248, 149, 149, 0.514)",
+                        borderRadius: "8px",
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <span>Amount: &#8377;&nbsp;{bookdetails.amount}</span>
+                      <button onClick={() => handledelete(bookdetails._id)}>
+                        Delete Booking
+                      </button>
+                    </div>
                   </div>
                 ))}
             </>
           )}
 
-          <button onClick={handleClick} className="lButton">
+          <button onClick={handleClick} className="lButtonn">
             Logout
           </button>
         </div>

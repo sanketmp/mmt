@@ -19,3 +19,12 @@ export const getBooking = async (req, res, next) => {
     next(err);
   }
 };
+
+export const deleteBooking = async (req, res, next) => {
+  try {
+    await Booking.findByIdAndDelete(req.params.id);
+    res.status(200).json("Booking has been deleted.");
+  } catch (err) {
+    next(err);
+  }
+};

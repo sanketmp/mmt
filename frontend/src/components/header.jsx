@@ -48,7 +48,7 @@ const Header = ({ type }) => {
   };
 
   const { dispatch } = useContext(SearchContext);
-  
+
   const handleSearch = () => {
     if (destination !== "") {
       dispatch({
@@ -117,33 +117,6 @@ const Header = ({ type }) => {
               >
                 <FontAwesomeIcon icon={faPlane} />
                 <span>Flights</span>
-              </div>
-              <div
-                onClick={() => setActiveClass(3)}
-                className={
-                  activeClass === 3 ? "headerListItem active" : "headerListItem"
-                }
-              >
-                <FontAwesomeIcon icon={faCar} />
-                <span>Car rentals</span>
-              </div>
-              <div
-                onClick={() => setActiveClass(4)}
-                className={
-                  activeClass === 4 ? "headerListItem active" : "headerListItem"
-                }
-              >
-                <FontAwesomeIcon icon={faBed} />
-                <span>Attractions</span>
-              </div>
-              <div
-                onClick={() => setActiveClass(5)}
-                className={
-                  activeClass === 5 ? "headerListItem active" : "headerListItem"
-                }
-              >
-                <FontAwesomeIcon icon={faTaxi} />
-                <span>Airport taxis</span>
               </div>
             </div>
             <div className="headerSearch">

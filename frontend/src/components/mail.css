@@ -27,5 +27,5 @@
   font-family: inherit;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
+  cursor: not-allowed;
 }

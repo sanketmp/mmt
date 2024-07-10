@@ -1,17 +1,18 @@
-.login {
+.loginn {
   font-family: inherit;
-  height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  max-width: 60%;
+  margin: auto;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
 }
 
-.Container {
+.Containerr {
   font-family: inherit;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  width: 50%;
+  /* width: 50%; */
   height: fit-content;
   padding: 30px 50px;
   border: 5px solid #eb2226;
@@ -19,23 +20,25 @@
 }
 
 .bookingdetail {
-  border: 2px solid rgb(22, 72, 128);
+  border: none;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 20px;
+  padding-right: 20px;
   border-radius: 10px;
+  /* background-color: rgba(248, 149, 149, 0.514); */
+  background-color: rgba(149, 195, 248, 0.514);
 }
 
 .bookingdetail #details {
   color: rgb(22, 72, 128);
   font-size: 20px;
-  text-decoration: underline;
+  padding-left: 20px;
 }
 
 #info {
   text-align: center;
-  font-size: 15px;
-  color: #06ff3c;
+  font-size: 19px;
 }
 
 #entity {
@@ -45,7 +48,7 @@
   font-size: 20px;
 }
 
-.lButton {
+.lButtonn {
   font-family: inherit;
   border: 2px solid #eb2226;
   padding: 10px 20px;
@@ -55,7 +58,7 @@
   cursor: pointer;
 }
 
-.lButton:hover {
+.lButtonn:hover {
   background-color: rgb(67, 155, 255);
   border: 2px solid rgb(22, 72, 128);
 }
