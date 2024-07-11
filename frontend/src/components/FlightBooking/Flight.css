@@ -1,0 +1,130 @@
+.search-container {
+  position: absolute;
+  top: 33.33%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-box {
+  position: absolute;
+  top: 14px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  /* border: 3px solid #febb02; */
+}
+
+.search-box-content {
+  height: 75%;
+  width: 100%;
+  align-self: flex-end;
+}
+
+.search-form {
+  font-family: inherit;
+  display: flex;
+  gap: 15px;
+  /* margin-left: 1rem; */
+  border-radius: 10px;
+  border: 3px solid #febb02;
+  background-color: white;
+  padding: 1rem;
+  /* box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); */
+}
+
+.search-form-group {
+  flex: 1;
+
+}
+
+.search-form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b634e;
+}
+
+.search-form-select,
+.search-form-input {
+  width: 100%;
+  font-size: 20px;
+  /* font-weight: bold; */
+  /* outline: none; */
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+}
+
+
+.search-form-group-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-form-icon {
+  font-size: 1.25rem;
+}
+
+.search-form-date-info {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.search-form-travellers-class {
+  display: flex;
+  height: 40px;
+  gap: 10px;
+  /* margin-left: 0.5rem; */
+}
+
+.search-form-travellers-input {
+  width: 50%;
+  border: none;
+  background-color: rgba(211, 211, 211, 0.541);
+  border-radius: 5px;
+  /* border-bottom: 1px solid; */
+  font-size: 20px;
+  /* font-weight: bold; */
+  outline: none;
+}
+
+.search-form-class-select {
+  width: 50%;
+  border-bottom: 1px solid;
+  font-size: 0.875rem;
+  color: #6b7280;
+  outline: none;
+}
+
+.search-button-container {
+  position: absolute;
+  margin-top: 30px;
+  /* top: 66.66%; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* border: 2px solid red; */
+}
+
+.search-button {
+  /* border-radius: 9999px; */
+  background-image: linear-gradient(to right, #60a5fa, #2563eb);
+  /* padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem; */
+  font-size: 15px;
+  font-family: inherit;
+  padding: 5px 20px;
+  /* font-weight: bold; */
+  /* text-transform: uppercase; */
+  color: white;
+  width: fit-content;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
