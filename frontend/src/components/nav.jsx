@@ -2,11 +2,13 @@ import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/authcontext.jsx";
 import axios from "axios";
+import { IoLogInOutline } from "react-icons/io5";
+import { FaUserCircle } from "react-icons/fa";
+import { TbLogout, TbLogout2 } from "react-icons/tb";
 import "./nav.css";
 
 const Navbar = () => {
   const { user, dispatch } = useContext(AuthContext);
-  const [age, setAge] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -18,6 +20,7 @@ const Navbar = () => {
     axios.post("/auth/logout");
     dispatch({ type: "LOGOUT" });
     navigate("/");
+    window.location.reload(false);
   };
 
   return (
@@ -34,18 +37,26 @@ const Navbar = () => {
         </span>
         {user ? (
           <div className="dropdown">
-            <button className="dropbtn">{user.username}</button>
+            <button className="dropbtn">
+              <FaUserCircle />
+              &emsp;{user.username}
+            </button>
             <div className="dropdown-content">
-              <Link to="/myaccount">
+              <Link to="/myaccount" style={{ textDecoration: "none" }}>
                 <p>My Bookings</p>
               </Link>
-              <p onClick={handlelogout}>Logout</p>
+              <Link style={{ textDecoration: "none" }}>
+                <p onClick={handlelogout} className="plogout">
+                  Logout
+                </p>
+              </Link>
             </div>
           </div>
         ) : (
           <div className="navItems">
             <button className="navButton" onClick={handleLogin}>
-              Log in / Register
+              <TbLogout className="loginicon" />
+              &nbsp;Log in / Register
             </button>
           </div>
         )}

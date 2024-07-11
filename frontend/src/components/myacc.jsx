@@ -18,29 +18,9 @@ import { MdDelete } from "react-icons/md";
 const MyAcc = () => {
   const { user, dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
-  const {
-    data = "",
-    loading,
-    error,
-    reFetch,
-  } = useFetch(`/booking?person=${user.username}`);
-
-  const handleClick = (ev) => {
-    ev.preventDefault();
-    axios.post("/auth/logout");
-    dispatch({ type: "LOGOUT" });
-    navigate("/");
-  };
-
-  // function refreshPage() {
-  //   window.location.reload(false);
-  // }
-
-  // return (
-  //   <div>
-  //     <button onClick={refreshPage}>Click to reload!</button>
-  //   </div>
-  // );
+  const { data, loading, error, reFetch } = useFetch(
+    `/booking?person=${user.username}`
+  );
 
   const handledelete = (id) => {
     axios.delete(`/booking/${id}`);
@@ -121,8 +101,12 @@ const MyAcc = () => {
                       }}
                     >
                       <span>Amount: &#8377;&nbsp;{bookdetails.amount}</span>
-                      <button className="deletebtn" onClick={() => handledelete(bookdetails._id)}>
-                      <MdDelete />
+                      <button
+                        className="deletebtn"
+                        onClick={() => handledelete(bookdetails._id)}
+                        title="Delete this Booking"
+                      >
+                        <MdDelete />
                       </button>
                     </div>
                   </div>
@@ -130,9 +114,9 @@ const MyAcc = () => {
             </>
           )}
 
-          <button onClick={handleClick} className="lButtonn">
-            Logout
-          </button>
+          {/* <button onClick={handleClick} className="lButtonn">
+            Logoutt
+          </button> */}
         </div>
       </div>
     </>

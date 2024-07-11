@@ -27,35 +27,33 @@
   background-color: rgb(22, 72, 128);
   border: none;
   height: 45px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navButton:hover {
   background-color: rgb(67, 155, 255);
+  color: black;
 }
 
-.usernavButton {
-  font-family: inherit;
-  margin-left: 20px;
-  padding: 5px 10px;
-  cursor: pointer;
-  color: #ffffff;
-  background-color: rgb(22, 72, 128);
-  border: 2px solid #ffffff;
-  height: 45px;
-}
-
-.usernavButton:hover {
-  border: 2px solid #eb2226;
+.loginicon {
+  font-size: 20px;
+  color: rgb(67, 155, 255);
 }
 
 .dropbtn {
-  background-color: rgb(22, 72, 128);
+  background-color: rgba(255, 255, 255, 0.24);
   border-radius: 10px;
   color: white;
   padding: 16px;
   font-size: 16px;
   font-family: inherit;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dropdown {
@@ -67,7 +65,6 @@
   display: none;
   position: absolute;
   background-color: #ffffff;
-
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -80,17 +77,10 @@
   display: block;
 }
 
-/* Change color of dropdown links on hover */
 .dropdown-content p:hover {
   background-color: #cfcfcf;
 }
 
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-  background-color: rgb(67, 155, 255);
 }
