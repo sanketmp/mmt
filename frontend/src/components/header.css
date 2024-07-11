@@ -51,10 +51,11 @@
   font-family: inherit;
   background-color: #0071c2;
   color: white;
-  font-weight: 500;
+  font-weight: bolder;
   border: none;
   padding: 10px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .headerSearch {
@@ -127,7 +128,7 @@
 .optionCounterButton {
   width: 30px;
   height: 30px;
-  border: 1px solid #0071c2;
+  border: 1px solid #17c200;
   color: #0071c2;
   cursor: pointer;
   background-color: white;

@@ -40,11 +40,8 @@ const MyAcc = () => {
           <span style={{ textAlign: "center", fontSize: "30px" }}>
             My Bookings
           </span>
-          <span id="entity">Username: </span>
-          <span>{user.username}</span>
-          <p id="entity">Bookings:</p>
           {loading ? (
-            "Loading Booking Details"
+            "Loading Booking Details..."
           ) : (
             <>
               {data &&

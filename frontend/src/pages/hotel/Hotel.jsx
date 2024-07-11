@@ -8,9 +8,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/searchcontext";
 import { AuthContext } from "../../context/authcontext";
 import axios from "axios";
+import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
 import "./hotel.css";
 
 const Hotel = () => {
+  const [open, setOpen] = useState(false);
   const photos = [
     {
       src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707778.jpg?k=56ba0babbcbbfeb3d3e911728831dcbc390ed2cb16c51d88159f82bf751d04c6&o=&hp=1",
@@ -62,7 +66,10 @@ const Hotel = () => {
       try {
         if (days * data.price !== 0) {
           await axios.post("/booking", bookinginfo);
-          navigate("/");
+          setOpen(true);
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
         }
       } catch (error) {
         throw new Error(error);
@@ -70,6 +77,13 @@ const Hotel = () => {
     } else {
       navigate("/login");
     }
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
   };
 
   return (
@@ -121,6 +135,21 @@ const Hotel = () => {
                   <b>&#8377;{days * data.price}</b> (for {days} Days)
                 </h2>
                 <button onClick={handleClick}>Grab This Hotel!</button>
+                <Snackbar
+                  open={open}
+                  autoHideDuration={6000}
+                  onClose={handleClose}
+                >
+                  <Alert
+                    onClose={handleClose}
+                    severity="success"
+                    variant="filled"
+                    sx={{ width: "100%" }}
+                    style={{ fontFamily: "inherit", fontWeight: "bolder" }}
+                  >
+                    Great! See you at {data.name}.
+                  </Alert>
+                </Snackbar>
               </div>
             </div>
           </div>

@@ -40,7 +40,7 @@ const List = () => {
           <div className="listSearch">
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
-              <label>Destination</label>
+              <label>City</label>
               <input
                 placeholder={destination}
                 onChange={(e) => setDestination(e.target.value)}
@@ -48,7 +48,7 @@ const List = () => {
               />
             </div>
             <div className="lsItem">
-              <label>Check-in Date</label>
+              <label>Check-in-out Dates</label>
               <span onClick={() => setOpenDate(!openDate)}>{`${format(
                 dates[0].startDate,
                 "MM/dd/yyyy"
