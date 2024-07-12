@@ -35,9 +35,6 @@ const Flight = () => {
                   className="search-form-select"
                   onChange={(e) => setSelectedAirport(e.target.value)}
                 >
-                  {/* <option key="{u}" value="">
-                    wtfWTF
-                  </option> */}
                   {airports.map((airport) => (
                     <option key={airport.code} value={airport.code}>
                       {airport.name} ({airport.code})

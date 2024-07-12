@@ -18,7 +18,7 @@ import Navbar from "./nav";
 import { SearchContext } from "../context/searchcontext";
 import { AuthContext } from "../context/authcontext";
 
-const Header = ({ type }) => {
+const Header = ({ type, mode }) => {
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [dates, setDates] = useState([
@@ -67,28 +67,6 @@ const Header = ({ type }) => {
         }
       >
         <Navbar />
-        {/* <div className="headerList">
-          <div className="headerListItem active">
-            <FontAwesomeIcon icon={faBed} />
-            <span>Hotels</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faPlane} />
-            <span>Flights</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faCar} />
-            <span>Car rentals</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faBed} />
-            <span>Attractions</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faTaxi} />
-            <span>Airport taxis</span>
-          </div>
-        </div> */}
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
@@ -101,7 +79,10 @@ const Header = ({ type }) => {
             </p>
             <div className="headerList">
               <div
-                onClick={() => setActiveClass(1)}
+                onClick={() => {
+                  setActiveClass(1);
+                  mode(1);
+                }}
                 className={
                   activeClass === 1 ? "headerListItem active" : "headerListItem"
                 }
@@ -110,7 +91,10 @@ const Header = ({ type }) => {
                 <span>Hotels</span>
               </div>
               <div
-                onClick={() => setActiveClass(2)}
+                onClick={() => {
+                  setActiveClass(2);
+                  mode(2);
+                }}
                 className={
                   activeClass === 2 ? "headerListItem active" : "headerListItem"
                 }

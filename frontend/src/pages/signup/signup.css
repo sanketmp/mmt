@@ -26,7 +26,7 @@
 
 .lButton {
   font-family: inherit;
-  border: 2px solid #eb2226;
+  border: none;
   padding: 10px 20px;
   background-color: rgb(22, 72, 128);
   color: white;
@@ -42,5 +42,10 @@
 
 .lButton:hover {
   background-color: rgb(67, 155, 255);
-  border: 2px solid rgb(22, 72, 128);
+}
+
+.err {
+  text-align: center;
+  color: red;
+  font-weight: bold;
 }
