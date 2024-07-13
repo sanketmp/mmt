@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/authcontext.jsx";
 import useFetch from "../hooks/useFetch";
 import { MdDelete } from "react-icons/md";
@@ -9,14 +9,17 @@ import "./myacc.css";
 
 const MyAcc = () => {
   const { user, dispatch } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const { data, loading, error, reFetch } = useFetch(
     `/booking?person=${user.username}`
   );
 
-  const handledelete = (id) => {
-    axios.delete(`/booking/${id}`);
-    window.location.reload(false);
+  const handledelete = async (id) => {
+    await axios.delete(`/booking/${id}`);
+    setTimeout(() => {
+      navigate("/");
+    }, 2000);
   };
 
   return (

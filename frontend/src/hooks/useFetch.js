@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3000/api";
+axios.defaults.baseURL = "https://mmt-psi.vercel.app/api";
 
 const useFetch = (url) => {
   const [data, setData] = useState([]);
