@@ -6,7 +6,6 @@ import Login from "./pages/login/login";
 import Signup from "./pages/signup/signup";
 import MyAcc from "./components/myacc";
 import Flightlist from "./pages/FlightList/Flightlist";
-// import FlightDetail from "./pages/FlightDetails/FlightDetail";
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
           <Route path="/hotels" element={<List />} />
           <Route path="/hotels/:id" element={<Hotel />} />
           <Route path="/flights" element={<Flightlist />} />
-          {/* <Route path="/flights/:id" element={<FlightDetail />} /> */}
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/myaccount" element={<MyAcc />} />

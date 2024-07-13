@@ -26,13 +26,3 @@ const HotelSchema = new mongoose.Schema(
 );
 
 export default mongoose.model("Hotels", HotelSchema);
-
-/*
-{
-  "name": "",
-  "city": "",
-  "distance": "",
-  "desc": "",
-  "price":
-}
-*/

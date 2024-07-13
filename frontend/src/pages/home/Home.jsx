@@ -6,7 +6,6 @@ import Flight from "../../components/FlightBooking/Flight";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 import MailList from "../../components/mail";
-// import Navbar from "../../components/nav";
 import Properties from "../../components/properties";
 import "./home.css";
 import { useState } from "react";

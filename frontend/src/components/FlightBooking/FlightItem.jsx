@@ -1,6 +1,6 @@
 import { AuthContext } from "../../context/authcontext";
 import { useContext, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { MdFlightLand, MdFlightTakeoff } from "react-icons/md";
 import { AiOutlineThunderbolt } from "react-icons/ai";
 import "./FlightItem.css";

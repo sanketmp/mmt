@@ -1,12 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
-import mongoose from "mongoose";
 import authRoute from "./routes/authRoutes.js";
 import usersRoute from "./routes/userRoutes.js";
 import hotelsRoute from "./routes/hotelRoutes.js";
 import bookingsRoute from "./routes/bookingRoutes.js";
-import flightRoute from "./routes/flightRoutes.js"
-/// import roomsRoute from "./routes/rooms.js";
+import flightRoute from "./routes/flightRoutes.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import connectDB from "./db/connectdb.js";

@@ -1,15 +1,14 @@
-import "./myacc.css";
 import axios from "axios";
-import { useContext, useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../context/authcontext.jsx";
 import useFetch from "../hooks/useFetch";
 import { MdDelete } from "react-icons/md";
 import { MdAirplanemodeActive, MdHotel } from "react-icons/md";
+import "./myacc.css";
 
 const MyAcc = () => {
   const { user, dispatch } = useContext(AuthContext);
-  // const navigate = useNavigate();
 
   const { data, loading, error, reFetch } = useFetch(
     `/booking?person=${user.username}`

@@ -14,7 +14,6 @@
   align-items: center;
   border-radius: 0.75rem;
   padding: 1rem;
-  /* border: 3px solid #febb02; */
 }
 
 .search-box-content {
@@ -27,7 +26,6 @@
   font-family: inherit;
   display: flex;
   gap: 15px;
-  /* margin-left: 1rem; */
   border-radius: 10px;
   border: 3px solid #febb02;
   background-color: white;
@@ -75,7 +73,6 @@
   display: flex;
   height: 40px;
   gap: 10px;
-  /* margin-left: 0.5rem; */
 }
 
 .search-form-travellers-input {

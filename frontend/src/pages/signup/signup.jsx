@@ -21,10 +21,8 @@ const Signup = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    //dispatch({ type: "LOGIN_START" });
     try {
       await axios.post("/auth/register", regcredentials);
-      //dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
       navigate("/login");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });

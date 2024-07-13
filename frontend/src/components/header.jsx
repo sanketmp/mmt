@@ -14,7 +14,6 @@ import { useNavigate } from "react-router-dom";
 import "./header.css";
 import Navbar from "./nav";
 import { SearchContext } from "../context/searchcontext";
-// import { AuthContext } from "../context/authcontext";
 
 const Header = ({ type, mode }) => {
   const [destination, setDestination] = useState("");

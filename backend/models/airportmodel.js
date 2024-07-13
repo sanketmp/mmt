@@ -12,9 +12,3 @@ const AirportSchema = new mongoose.Schema({
 
 export default mongoose.model("airports", AirportSchema);
 
-/*
-{
-  "name": "",
-  "code": "",
-}
-*/

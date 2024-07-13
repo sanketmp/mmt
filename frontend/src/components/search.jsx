@@ -1,9 +1,7 @@
-import "./search.css";
-//import { Link } from "react-router-dom";
 import { AuthContext } from "../context/authcontext";
-import { useContext, useState } from "react";
-// import useFetch from "../hooks/useFetch";
-import { useNavigate, Link } from "react-router-dom";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import "./search.css";
 
 const Search = ({ item }) => {
   const { user, dispatch } = useContext(AuthContext);
@@ -44,11 +42,9 @@ const Search = ({ item }) => {
         <div className="siDetailTexts">
           <span className="siPrice">&#8377;{item.price}</span>
           <span className="siTaxOp">Includes taxes and fees</span>
-          {/* <Link to={`/hotels/${item._id}`}> */}
           <button onClick={handleclick} className="siCheckButton">
             Book Now
           </button>
-          {/* </Link> */}
         </div>
       </div>
     </div>

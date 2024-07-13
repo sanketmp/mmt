@@ -35,16 +35,3 @@ const BookingSchema = new mongoose.Schema(
 
 export default mongoose.model("Bookings", BookingSchema);
 
-/*
-{
-  "personname": "",
-  "type": "",
-  "hotelname": "",
-  "hotelcity": "",
-  "airline": "",
-  "flightfrom": "",
-  "flightto": "",
-  "people":"",
-  "amount": "",
-}
-*/

@@ -13,7 +13,7 @@
   "keywords": [],
   "author": "sanketmp",
   "license": "ISC",
-  "description": "Make my trip",
+  "description": "Make my trip Hotel and Flight Booking.",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",

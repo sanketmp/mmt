@@ -1,4 +1,3 @@
-// import useFetch from "../hooks/useFetch";
 import "./featuredflight.css";
 
 const Featuredflight = () => {

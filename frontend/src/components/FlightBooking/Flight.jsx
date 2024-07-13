@@ -1,17 +1,13 @@
-//import { Link } from "react-router-dom";
-import "./Flight.css";
 import { useState, useContext } from "react";
-//import axios from "axios";
 import useFetch from "../../hooks/useFetch";
 import { LuArrowLeftRight } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
-// import { SearchContext } from "../../context/searchcontext.jsx";
-// import { AuthContext } from "../../context/authcontext.jsx";
 import { FlightContext } from "../../context/flightcontext.jsx";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import "./Flight.css";
 
 const Flight = () => {
   const [fromairports, setFromAirports] = useState("");

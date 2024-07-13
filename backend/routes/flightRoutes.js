@@ -5,7 +5,6 @@ import {
   getAirport,
   getAirportByID,
 } from "../controllers/flightcontroller.js";
-import { verifyAdmin } from "../middleware/verifyToken.js";
 
 const router = express.Router();
 
