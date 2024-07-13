@@ -1,27 +1,63 @@
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import "./Flight.css";
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
+//import axios from "axios";
+import useFetch from "../../hooks/useFetch";
+import { LuArrowLeftRight } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
+// import { SearchContext } from "../../context/searchcontext.jsx";
+// import { AuthContext } from "../../context/authcontext.jsx";
+import { FlightContext } from "../../context/flightcontext.jsx";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 const Flight = () => {
-  const [airports, setAirports] = useState([]);
+  const [fromairports, setFromAirports] = useState("");
+  const [toairports, setToAirports] = useState("");
+
+  const fromChange = (event) => {
+    setFromAirports(event.target.value);
+  };
+  const toChange = (event) => {
+    setToAirports(event.target.value);
+  };
+
   const [departure, setDeparture] = useState("");
   const [returnDate, setReturnDate] = useState("");
-  const [travellers, setTravellers] = useState();
-  const [classType, setClassType] = useState("Economy/Premium Economy");
+  const [travellers, setTravellers] = useState(1);
+  const [classType, setClassType] = useState();
 
-  //   useEffect(() => {
-  //     // Fetch the JSON data
-  //     fetch("/airports.json")
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         setAirports(data);
+  const { data, loading, error } = useFetch("/air/airports");
+  const { dispatch } = useContext(FlightContext);
+  const navigate = useNavigate();
 
-  //         // Set a random default value
-  //         const randomAirport = data[Math.floor(Math.random() * data.length)];
-  //         setSelectedAirport(randomAirport.code);
-  //       })
-  //       .catch((error) => console.error("Error fetching airport data:", error));
-  //   }, []);
+  const handleseearch = () => {
+    if (fromairports !== "" && toairports !== "") {
+      dispatch({
+        type: "NEW_FSEARCH",
+        payload: {
+          fromairports,
+          toairports,
+          departure,
+          returnDate,
+          travellers,
+          classType,
+        },
+      });
+      navigate("/flights", {
+        state: {
+          fromairports,
+          toairports,
+          departure,
+          returnDate,
+          travellers,
+          classType,
+        },
+      });
+    }
+  };
 
   return (
     <>
@@ -30,33 +66,63 @@ const Flight = () => {
           <div className="search-box-content">
             <div className="search-form">
               <div className="search-form-group">
-                <label className="search-form-label">From</label>
-                <select
+                <FormControl
+                  variant="standard"
+                  sx={{ m: 1, minWidth: 120 }}
                   className="search-form-select"
-                  onChange={(e) => setSelectedAirport(e.target.value)}
                 >
-                  {airports.map((airport) => (
-                    <option key={airport.code} value={airport.code}>
-                      {airport.name} ({airport.code})
-                    </option>
-                  ))}
-                </select>
+                  <InputLabel id="demo-simple-select-standard-label">
+                    From
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-standard-label"
+                    id="demo-simple-select-standard"
+                    value={fromairports}
+                    onChange={fromChange}
+                    label="From"
+                  >
+                    <MenuItem value="">
+                      <em>-None-</em>
+                    </MenuItem>
+                    {data.map((airport) => (
+                      <MenuItem key={airport.code} value={airport.code}>
+                        {airport.name}&nbsp;&bull;&nbsp;{airport.code}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </div>
               <div className="search-form-group-center">
-                <div className="search-form-icon">⇄</div>
+                <div className="search-form-icon">
+                  <LuArrowLeftRight />
+                </div>
               </div>
               <div className="search-form-group">
-                <label className="search-form-label">To</label>
-                <select
+                <FormControl
+                  variant="standard"
+                  sx={{ m: 1, minWidth: 120 }}
                   className="search-form-select"
-                  onChange={(e) => setSelectedAirport(e.target.value)}
                 >
-                  {airports.map((airport) => (
-                    <option key={airport.code} value={airport.code}>
-                      {airport.name} ({airport.code})
-                    </option>
-                  ))}
-                </select>
+                  <InputLabel id="demo-simple-select-standard-label">
+                    To
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-standard-label"
+                    id="demo-simple-select-standard"
+                    value={toairports}
+                    onChange={toChange}
+                    label="To"
+                  >
+                    <MenuItem value="">
+                      <em>-None-</em>
+                    </MenuItem>
+                    {data.map((airport) => (
+                      <MenuItem key={airport.code} value={airport.code}>
+                        {airport.name}&nbsp;&bull;&nbsp;{airport.code}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </div>
               <div className="search-form-group">
                 <label className="search-form-label">Departure</label>
@@ -96,10 +162,10 @@ const Flight = () => {
                     value={classType}
                     onChange={(e) => setClassType(e.target.value)}
                   >
-                    <option>Economy</option>
-                    <option>Premium Economy</option>
-                    <option>Business</option>
-                    <option>First Class</option>
+                    <option value="Economy">Economy</option>
+                    <option value="PremiumEconomy">Premium Economy</option>
+                    <option value="Business">Business</option>
+                    <option value="FirstClass">First Class</option>
                   </select>
                 </div>
               </div>
@@ -108,9 +174,9 @@ const Flight = () => {
         </div>
       </div>
       <div className="search-button-container">
-        <Link to={"/flight-list"}>
-          <button className="search-button">Search Flight</button>
-        </Link>
+        <button className="search-button" onClick={handleseearch}>
+          Search Flight
+        </button>
       </div>
     </>
   );

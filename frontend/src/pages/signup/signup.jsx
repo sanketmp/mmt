@@ -21,7 +21,7 @@ const Signup = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    //dispatch({ type: "LOGIN_START" }); 
+    //dispatch({ type: "LOGIN_START" });
     try {
       await axios.post("/auth/register", regcredentials);
       //dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
@@ -67,7 +67,7 @@ const Signup = () => {
         <button disabled={loading} onClick={handleClick} className="lButton">
           Create
         </button>
-        {error && <span>{error.message}</span>}
+        {error && <span className="err">{error.message}</span>}
         <span>
           Already have account?&nbsp;
           <Link

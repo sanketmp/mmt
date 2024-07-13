@@ -5,19 +5,12 @@ import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/authcontext.jsx";
 import useFetch from "../hooks/useFetch";
 import { MdDelete } from "react-icons/md";
-
-// createdAt: "2024-07-07T09:37:54.546Z";
-// email: "user1@user.co";
-// updatedAt: "2024-07-07T09:37:54.546Z";
-// username: "user1";
-// __v: 0;
-// _id: "668a61f2f7987459f0d26c11";
-
-//let currentuser = JSON.parse(localStorage.getItem("UserDet"));
+import { MdAirplanemodeActive, MdHotel } from "react-icons/md";
 
 const MyAcc = () => {
   const { user, dispatch } = useContext(AuthContext);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+
   const { data, loading, error, reFetch } = useFetch(
     `/booking?person=${user.username}`
   );
@@ -53,7 +46,10 @@ const MyAcc = () => {
                         <br />
                         <br />
                         <span id="details">Booking Type(H/F): </span>
-                        <span id="info">{bookdetails.type}</span>
+                        <span id="info">
+                          &nbsp;
+                          <MdHotel />
+                        </span>
                         <br />
                         <span id="details">Hotel Name and City: </span>
                         <span id="info">
@@ -65,22 +61,23 @@ const MyAcc = () => {
                     )}
                     {bookdetails.type === "F" && (
                       <>
-                        <span id="details">Type(H/F): </span>
-                        <span id="info">&emsp;&emsp;{bookdetails.type}</span>
+                        <span>Booking ID: {bookdetails._id}</span>
+                        <br />
+                        <br />
+                        <span id="details">Booking Type(H/F): </span>
+                        <span id="info">
+                          &nbsp;
+                          <MdAirplanemodeActive />
+                        </span>
                         <br />
                         <br />
                         <span id="details">Airline: </span>
-                        <span id="info">
-                          &emsp;&emsp;&emsp;{bookdetails.airline}
-                        </span>
+                        <span id="info">&nbsp;{bookdetails.airline}</span>
                         <br />
                         <span id="details">From </span>
-                        <span id="info">
-                          &emsp;{bookdetails.flightfrom}&emsp;&emsp;
-                        </span>
+                        <span id="info">{bookdetails.flightfrom}&emsp;</span>
                         <span id="details">To </span>
-                        <span id="info">&emsp;{bookdetails.flightto}</span>
-                        <br />
+                        <span id="info">{bookdetails.flightto}</span>
                         <br />
                       </>
                     )}
@@ -110,10 +107,6 @@ const MyAcc = () => {
                 ))}
             </>
           )}
-
-          {/* <button onClick={handleClick} className="lButtonn">
-            Logoutt
-          </button> */}
         </div>
       </div>
     </>

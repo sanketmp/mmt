@@ -22,7 +22,7 @@ router.get("/find/:id", getHotel);
 router.get("/", getHotels);
 router.get("/countbycity", countByCity);
 
-//Not needed
+//Not  needed
 router.get("/countByType", countByType);
 router.get("/room/:id", getHotelRooms);
 

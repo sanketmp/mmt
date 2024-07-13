@@ -5,6 +5,7 @@ import authRoute from "./routes/authRoutes.js";
 import usersRoute from "./routes/userRoutes.js";
 import hotelsRoute from "./routes/hotelRoutes.js";
 import bookingsRoute from "./routes/bookingRoutes.js";
+import flightRoute from "./routes/flightRoutes.js"
 /// import roomsRoute from "./routes/rooms.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -25,7 +26,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/booking", bookingsRoute);
-//app.use("/api/rooms", roomsRoute);
+app.use("/api/air", flightRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;

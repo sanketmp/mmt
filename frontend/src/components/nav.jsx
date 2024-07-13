@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/authcontext.jsx";
 import axios from "axios";
-import { IoLogInOutline } from "react-icons/io5";
+// import { IoLogInOutline } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 import { TbLogout, TbLogout2 } from "react-icons/tb";
 import "./nav.css";

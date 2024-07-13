@@ -2,7 +2,7 @@ import "./search.css";
 //import { Link } from "react-router-dom";
 import { AuthContext } from "../context/authcontext";
 import { useContext, useState } from "react";
-import useFetch from "../hooks/useFetch";
+// import useFetch from "../hooks/useFetch";
 import { useNavigate, Link } from "react-router-dom";
 
 const Search = ({ item }) => {
@@ -56,15 +56,3 @@ const Search = ({ item }) => {
 };
 
 export default Search;
-
-/**
- "_id": "668bb1e2a64dd8b77a6f4c04",
-        "name": "Olden Oak Inn",
-        "city": "Mumbai",
-        "distance": "100kms",
-        "desc": "Luxurious Lodging in Mumbai Central",
-        "price": 1999,
-        "createdAt": "2024-07-08T09:31:14.445Z",
-        "updatedAt": "2024-07-08T09:31:14.445Z",
-        "__v": 0
- */
