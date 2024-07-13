@@ -19,7 +19,7 @@ const MyAcc = () => {
     await axios.delete(`/booking/${id}`);
     setTimeout(() => {
       navigate("/");
-    }, 2000);
+    }, 1000);
   };
 
   return (
